@@ -1,0 +1,21 @@
+{
+  "name": "advent-2025-ts",
+  "version": "1.0.0",
+  "description": "Advent of Code 2025 - TypeScript",
+  "type": "module",
+  "scripts": {
+    "start": "node index.ts",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  },
+  "devDependencies": {
+    "jsdom": "^27.3.0",
+    "vitest": "4.0.15"
+  }
+}
