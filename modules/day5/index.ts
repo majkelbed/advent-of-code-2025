@@ -63,6 +63,21 @@ export function freshOrSpoiled(database: string[]) {
   return freshProductsCount;
 }
 
+export function getFreshIDs(database: string[]) {
+  const [ranges] = getInput(database);
+  const freshRanges = mergeRanges(
+    ranges.map(([start, end]) => new Range(start, end)),
+  );
+
+  let totalFreshIds = 0;
+
+  for (const range of freshRanges) {
+    totalFreshIds += range.end - range.start + 1;
+  }
+
+  return totalFreshIds;
+}
+
 export class Range {
   public start: number;
   public end: number;
