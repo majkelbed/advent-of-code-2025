@@ -20,6 +20,27 @@ describe("day5", () => {
     ).toBe(3);
   });
 
+  it("should return correct value for given example", () => {
+    expect(
+      freshOrSpoiled([
+        "12-18",
+        "25-25",
+        "10-14",
+        "16-20",
+        "3-5",
+        "2-5",
+        " ",
+        "1",
+        "5",
+        "8",
+        "11",
+        "17",
+        "25",
+        "32",
+      ])
+    ).toBe(4);
+  });
+
   describe("Range", () => {
     describe("isIntersecting", () => {
       it("returns true when one range contains the other", () => {

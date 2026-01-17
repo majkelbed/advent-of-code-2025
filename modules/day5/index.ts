@@ -48,19 +48,19 @@ export function freshOrSpoiled(database: string[]) {
     ranges.map(([start, end]) => new Range(start, end)),
   );
 
-  let spoiledProductsCount = 0;
+  let freshProductsCount = 0;
 
   for (const id of productsIds) {
     const isFresh = freshRanges.some(
       (range) => id >= range.start && id <= range.end,
     );
 
-    if (!isFresh) {
-      spoiledProductsCount++;
+    if (isFresh) {
+      freshProductsCount++;
     }
   }
 
-  return spoiledProductsCount;
+  return freshProductsCount;
 }
 
 export class Range {
