@@ -7,6 +7,7 @@ import { longestReapetingSequence } from "./modules/day2/index.ts";
 import { benchmark } from "./utils/benchmark.ts";
 import { joltage } from "./modules/day3/index.ts";
 import { forklifts } from "./modules/day4/index.ts";
+import { freshOrSpoiled } from "./modules/day5/index.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +22,8 @@ function day(dayNumber: number, inputLines: string[]) {
       return joltage(inputLines);
     case 4:
       return forklifts(inputLines);
+    case 5:
+      return freshOrSpoiled(inputLines);
     default:
       console.log("Day not completed");
   }
@@ -39,11 +42,11 @@ async function main() {
   const input = await readFile(filepath);
   const inputLines = input.split("\r\n");
 
+  const runDay = () => day(dayNumber, inputLines);
   if (isBenchmark) {
-    const fn = () => day(dayNumber, inputLines);
-    benchmark(fn);
+    benchmark(runDay);
   } else {
-    console.log(day(dayNumber, inputLines));
+    console.log(runDay());
   }
 }
 
